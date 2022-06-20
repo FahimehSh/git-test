@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashController;
+use \App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard',[DashController::class, 'index'])->name('dashboard.index');
+
+Route::get('/index', [HomeController::class, 'index'])->name('home');
+

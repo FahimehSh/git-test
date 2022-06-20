@@ -17,21 +17,21 @@
     <!-- iCheck -->
     <link rel="stylesheet" href="{{asset('/dashboardStyle/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="{{asset('dashboardStyle/plugins/jqvmap/jqvmap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/dashboardStyle/plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('dashboardStyle/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/dashboardStyle/dist/css/adminlte.min.css')}}">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{asset('dashboardStyle/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/dashboardStyle/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{asset('dashboardStyle/plugins/daterangepicker/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('/dashboardStyle/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
-    <link rel="stylesheet" href="{{asset('dashboardStyle/plugins/summernote/summernote-bs4.css')}}">
+    <link rel="stylesheet" href="{{asset('/dashboardStyle/plugins/summernote/summernote-bs4.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- Bootstrap 4 RTL -->
     <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
     <!-- Custom style for RTL -->
-    <link rel="stylesheet" href="{{asset('dashboardStyle/dist/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('/dashboardStyle/dist/css/custom.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -78,7 +78,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="{{asset('dashboardStyle/dist/img/user1-128x128.jpg')}}" alt="User Avatar"
+                            <img src="{{asset('/dashboardStyle/dist/img/user1-128x128.jpg')}}" alt="User Avatar"
                                  class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
@@ -95,7 +95,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="{{asset('dashboardStyle/dist/img/user8-128x128.jpg')}}" alt="User Avatar"
+                            <img src="{{asset('/dashboardStyle/dist/img/user8-128x128.jpg')}}" alt="User Avatar"
                                  class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
@@ -112,7 +112,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="{{asset('dashboardStyle/dist/img/user3-128x128.jpg')}}" alt="User Avatar"
+                            <img src="{{asset('/dashboardStyle/dist/img/user3-128x128.jpg')}}" alt="User Avatar"
                                  class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
@@ -169,10 +169,10 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <img src="{{asset('dashboard/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
+            <img src="{{asset('/dashboard/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
                  class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">خانه سبز</span>
+            <span class="brand-text font-weight-light">Admin</span>
         </a>
 
         <!-- Sidebar -->
@@ -180,7 +180,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{asset('dashboard/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
+                    <img src="{{asset('/dashboard/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
                          alt="User Image">
                 </div>
                 <div class="info">
@@ -232,9 +232,9 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('dashboardStyle/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="{{asset('dashboardStyle/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
@@ -242,31 +242,31 @@
 <!-- Bootstrap 4 rtl -->
 <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="{{asset('dashboardStyle/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="{{asset('dashboardStyle/plugins/chart.js/Chart.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
-<script src="{{asset('dashboardStyle/plugins/sparklines/sparkline.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
-<script src="{{asset('dashboardStyle/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{asset('dashboardStyle/plugins/jqvmap/maps/jquery.vmap.world.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/jqvmap/maps/jquery.vmap.world.js')}}"></script>
 <!-- jQuery Knob Chart -->
-<script src="{{asset('dashboardStyle/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
 <!-- daterangepicker -->
-<script src="{{asset('dashboardStyle/plugins/moment/moment.min.js')}}"></script>
-<script src="{{asset('dashboardStyle/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('dashboardStyle/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->
-<script src="{{asset('dashboardStyle/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
-<script src="{{asset('dashboardStyle/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<script src="{{asset('/dashboardStyle/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="{{asset('dashboardStyle/dist/js/adminlte.js')}}"></script>
+<script src="{{asset('/dashboardStyle/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('dashboardStyle/dist/js/pages/dashboard.js')}}"></script>
+<script src="{{asset('/dashboardStyle/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('dashboardStyle/dist/js/demo.js')}}"></script>
+<script src="{{asset('/dashboardStyle/dist/js/demo.js')}}"></script>
 </body>
 </html>
 
