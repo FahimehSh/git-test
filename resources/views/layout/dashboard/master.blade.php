@@ -197,9 +197,27 @@
                     <li class="nav-item has-treeview menu-open">
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
+                                <a href="{{route('categories.index')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>دسته بندی ها</p>
+                                    <p>لیست دسته بندی ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('categories.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ساخت دسته بندی جدید</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('posts.index')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>لیست پست ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('posts.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ایجاد پست جدید</p>
                                 </a>
                             </li>
                         </ul>

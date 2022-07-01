@@ -2,49 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ctegory;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CtegoryController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('layout.dashboard.categories.index', compact('categories'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('layout.dashboard.categories.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category([
+            'title'=>$request->title
+        ]);
+        $category->save();
+        return redirect()->route('categories.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ctegory  $ctegory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Ctegory $ctegory)
+    public function show($id)
     {
         //
     }
@@ -52,10 +57,10 @@ class CtegoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ctegory  $ctegory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ctegory $ctegory)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +69,10 @@ class CtegoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ctegory  $ctegory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ctegory $ctegory)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +80,10 @@ class CtegoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ctegory  $ctegory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ctegory $ctegory)
+    public function destroy($id)
     {
         //
     }

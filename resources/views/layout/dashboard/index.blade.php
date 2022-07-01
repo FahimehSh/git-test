@@ -12,7 +12,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="../index.php">صفحه اصلی</a></li>
+                            <li class="breadcrumb-item"><a href="../home/index.blade.php">صفحه اصلی</a></li>
                             <li class="breadcrumb-item active">داشبورد</li>
                         </ol>
                     </div><!-- /.col -->
@@ -23,6 +23,7 @@
 
         <!-- Main content -->
         <section class="content">
+            @yield('mainContent')
         </section>
         <!-- /.content -->
     </div>
