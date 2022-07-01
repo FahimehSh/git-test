@@ -2,20 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $posts = [
-            [
-                'title' => 'posts1'
-            ],
-            [
-                'title' => 'post2'
-            ]
-        ];
+        $posts = Post::all();
         return view('layout.home.index', compact('posts'));
     }
 }

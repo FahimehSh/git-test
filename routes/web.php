@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashController;
-use \App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,13 @@ use \App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard',[DashController::class, 'index'])->name('dashboard.index');
+/*Route::prefix('/dashboard')->group(function () {
+    Route::get('/', [DashController::class, 'index'])->name('dashboard.index');
+    Route::prefix('/categories')->group();
+    Route::prefix('/posts')->group();
+});*/
 
-Route::get('/index', [HomeController::class, 'index'])->name('home');
 
+require __DIR__ . '/auth.php';
