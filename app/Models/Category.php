@@ -2,25 +2,13 @@
 
 namespace App\Models;
 
-class Category
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Category extends Model
 {
+    use HasFactory, softDeletes;
 
-    /**
-     * @param array $array
-     */
-    public function __construct(array $array)
-    {
-    }
-
-    public static function all()
-    {
-    }
-
-    public static function query()
-    {
-    }
-
-    public function save()
-    {
-    }
+    protected $fillable = ['title'];
 }
