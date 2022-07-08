@@ -183,7 +183,7 @@
                          alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">{{isset($user)?$user->name:''}}</a>
+                    <a href="#" class="d-block">Fahimeh Shirdel</a>
                 </div>
             </div>
 
