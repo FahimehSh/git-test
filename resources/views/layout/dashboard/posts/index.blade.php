@@ -1,5 +1,7 @@
 @extends('layout.dashboard.index')
 
+@section('page-title', '|لیست پست ها');
+
 @section('header-title', 'لیست پست ها')
 
 @section('mainContent')
@@ -9,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Bordered Table</h3>
+                            <h3 class="card-title">لیست پست ها</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -18,7 +20,8 @@
                                 <tr>
                                     <th style="width: 10px">ردیف</th>
                                     <th>عنوان</th>
-                                    <th>دسته بندی</th>
+                                    <th>خلاصه محتوا</th>
+                                    <th>نام دسته بندی</th>
                                     <th>عملیات</th>
                                 </tr>
                                 </thead>
@@ -27,10 +30,11 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$post->title}}</td>
-                                    <td>{{$post->title}}</td>
+                                    <td>{{mb_substr($post->short_content, 0, 20). '...'}}</td>
+                                    <td>{{$post->category->name}}</td>
                                     <td>
-                                        <a href="{{route('$posts.edit', ['post'=>$post->id])}}" class="btn btn-sm btn-primary">ویرایش</a>
-                                        <a href="{{route('$posts.destroy', ['post'=>$post->id])}}" onclick="return confirm('آیا مطمئن هستید؟')" class="btn btn-sm btn-danger">حذف</a>
+                                        <a href="{{route('posts.edit', ['post'=>$post->id])}}" class="btn btn-sm btn-primary">ویرایش</a>
+                                        <a href="{{route('posts.destroy', ['post'=>$post->id])}}" onclick="return confirm('آیا مطمئن هستید؟')" class="btn btn-sm btn-danger">حذف</a>
                                     </td>
                                 </tr>
                                 @endforeach

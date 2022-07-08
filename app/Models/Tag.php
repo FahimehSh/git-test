@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Tag extends Model
 {
     use HasFactory, softDeletes;
 
@@ -14,6 +14,6 @@ class Category extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsToMany(Post::class)->withPivot('create_date', 'create_time');
     }
 }

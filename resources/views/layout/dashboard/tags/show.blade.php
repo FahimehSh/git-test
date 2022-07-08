@@ -1,8 +1,8 @@
 @extends('layout.dashboard.index')
 
-@section('page-title', '|لیست دسته بندی ها');
+@section('page-title', '|نمایش جزئیات');
 
-@section('header-title', 'لیست دسته بندی ها')
+@section('header-title', 'لیست جزئیات')
 
 @section('mainContent')
     <div class="content">
@@ -11,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">لیست دسته بندی ها</h3>
+                            <h3 class="card-title">{{$tag->name}}</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -19,23 +19,21 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 10px">ردیف</th>
-                                    <th>عنوان</th>
-                                    <th>عملیات</th>
+                                    <th>عنوان پست</th>
+                                    <th>خلاصه محتوا</th>
+                                    <th>تاریخ ثبت</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($categories as $category)
+                                @foreach($tag->posts as $post)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$category->name}}</td>
-                                        <td>
-                                            <a href="{{route('categories.edit', ['category'=>$category->id])}}" class="btn btn-sm btn-primary">ویرایش</a>
-                                            <a href="{{route('categories.destroy', ['category'=>$category->id])}}" onclick="return confirm('آیا مطمئن هستید؟')"
-                                               class="btn btn-sm btn-danger">حذف</a>
-                                        </td>
+                                        <td>{{$post->title}}</td>
+                                        <td>{{mb_substr($post->short_content, 0, 20). '...'}}</td>
+                                        <td>{{$post->pivot->create_date}}</td>
                                     </tr>
-                                    @endforeach
-                                    </tbody>
+                                @endforeach
+                                </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->

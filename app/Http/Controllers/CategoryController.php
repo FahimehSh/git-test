@@ -11,7 +11,6 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -22,7 +21,6 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -38,7 +36,7 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $category = new Category([
-            'title'=>$request->title
+            'name'=>$request->name
         ]);
         $category->save();
         return redirect()->route('categories.index');
@@ -50,7 +48,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }
@@ -59,7 +57,6 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Category $category
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Category $category)
     {
@@ -73,9 +70,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category $category
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        $category->title = $request->title;
+        $category->name = $request->name;
         $category->save();
         return redirect()->route('categories.index');
     }

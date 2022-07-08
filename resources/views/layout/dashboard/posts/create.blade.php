@@ -1,5 +1,7 @@
 @extends('layout.dashboard.index')
 
+@section('page-title', '|ایجاد پست جدید');
+
 @section('header-title', 'ایجاد پست جدید')
 
 @section('mainContent')
@@ -18,7 +20,7 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">ثبت پست جدید</h3>
+                            <h3 class="card-title">ایجاد پست جدید</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -28,8 +30,9 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">عنوان پست</label>
-                                    <input type="text" name="title" value="{{old('title')}}" class="form-control" id="exampleInputEmail1"
-                                           placeholder="عنوان دسته بندی را وارد کنید">
+                                    <input type="text" name="title" value="{{old('title')}}" class="form-control"
+                                           id="exampleInputEmail1"
+                                           placeholder="عنوان پست را وارد کنید">
                                 </div>
                                 <div class="form-group">
                                     <label>خلاصه محتوا</label>
@@ -45,12 +48,25 @@
 
                                 <div class="form-group">
                                     <label>نام دسته بندی</label>
-                                    <select name="" class="form-control">
+                                    <select name="category_id" class="form-control">
                                         <option>انتخاب کنید:</option>
                                         @foreach($categories as $category)
-                                        <option value="{{$category->id}}" @selected(old('$category_id') == $category->id)>{{$category->title}}</option>
+                                            <option
+                                                value="{{old('$category_id', $category->id)}}">{{$category->name}}</option>
                                         @endforeach
                                     </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="inputError">تگ های مورد نظر خود را علامت بزنید.</label>
+                                    <div class="form-check">
+                                        @foreach($tags as $tag)
+                                            <div>
+                                            <input class="form-check-input" type="checkbox" name="tag_id[]" value="{{$tag->id}}">
+                                            <label class="form-check-label">{{$tag->name}}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
 
                             </div>

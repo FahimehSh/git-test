@@ -1,5 +1,7 @@
 @extends('layout.dashboard.index')
 
+@section('page-title', '|ویرایش پست');
+
 @section('header-title', 'ویرایش پست')
 
 @section('mainContent')
@@ -49,9 +51,25 @@
                                     <select name="category_id" class="form-control">
                                         <option>انتخاب کنید:</option>
                                         @foreach($categories as $category)
-                                        <option value="{{$category->id}}" @selected(old('$category_id') == $category->id)>{{$category->title}}</option>
+                                            <option
+                                                value="{{old('category_id', $category->id)}}" @selected($category->id == $post->category_id)>{{$category->name}}</option>
                                         @endforeach
                                     </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="inputError">تگ های مورد نظر خود را علامت
+                                        بزنید.</label>
+                                    <div class="form-check">
+                                        @foreach($tags as $tag)
+                                            <div>
+                                                <input class="form-check-input" type="checkbox" name="tag_id[]"
+                                                       value="{{old('tag_id', $tag->id)}}"
+                                                    {{in_array($tag->id, $post->tags->pluck('id')->toArray())?'checked':''}}>
+                                                <label class="form-check-label">{{$tag->name}}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
 
                             </div>

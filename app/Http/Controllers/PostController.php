@@ -5,30 +5,36 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::query()->with('category')->get();
+        //$posts = DB::table('posts')
+        //    ->join('categories', 'posts.category_id', '=', 'categories.id')
+        //    ->select('posts.*', 'categories.name')
+        //   ->get();
         return view('layout.dashboard.posts.index', compact('posts'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
         $categories = Category::all();
-        return view('layout.dashboard.posts.create', compact('categories'));
+        $tags = Tag::all();
+        return view('layout.dashboard.posts.create', compact('categories'), compact('tags'));
     }
 
     /**
@@ -43,10 +49,11 @@ class PostController extends Controller
             'title' => $request->title,
             'short_content' => $request->short_content,
             'content' => $request->input('content'),
-            'category_id' => 2,
+            'category_id' => $request->category_id,
             'user_id' => 1
         ]);
         $post->save();
+        $post->tags()->attach($request->tag_id, ['create_date' => date('Y-m-d'), 'create_time' => date('H:i:s')]);
         return redirect()->route('posts.index');
     }
 
@@ -65,12 +72,13 @@ class PostController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Post $post
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Post $post)
     {
+//        dd($post->tags->pluck('id'))->toArray();
         $categories = Category::all();
-        return view('layout.dashboard.posts.edit', compact('post'), compact('categories'));
+        $tags = Tag::all();
+        return view('layout.dashboard.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -78,21 +86,27 @@ class PostController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Post $post
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $post->title = $request->title;
+        $post->short_content = $request->short_content;
+        $post->content = $request->input('content');
+        $post->category_id = $request->category_id;
+        $post->save();
+        $post->tags()->sync($request->tag_id,
+            ['create_date' => date('Y-m-d'), 'create_time' => date('H:i:s')]);
+        return redirect()->route('posts.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Post $post
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }

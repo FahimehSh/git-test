@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>|داشبورد@yield('title-page')</title>
+    <title>داشبورد@yield('page-title')</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -172,7 +172,6 @@
             <img src="{{asset('/dashboard/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
                  class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">Admin</span>
         </a>
 
         <!-- Sidebar -->
@@ -184,7 +183,7 @@
                          alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
+                    <a href="#" class="d-block">{{isset($user)?$user->name:''}}</a>
                 </div>
             </div>
 
@@ -205,7 +204,7 @@
                             <li class="nav-item">
                                 <a href="{{route('categories.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>ساخت دسته بندی جدید</p>
+                                    <p>ایجاد دسته بندی جدید</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -218,6 +217,18 @@
                                 <a href="{{route('posts.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>ایجاد پست جدید</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('tags.index')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>لیست تگ ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('tags.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>ایجاد تگ جدید</p>
                                 </a>
                             </li>
                         </ul>
@@ -274,7 +285,8 @@
 <script src="{{asset('/dashboardStyle/plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('/dashboardStyle/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('/dashboardStyle/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<script
+    src="{{asset('/dashboardStyle/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->
 <script src="{{asset('/dashboardStyle/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->

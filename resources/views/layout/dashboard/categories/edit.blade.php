@@ -1,5 +1,7 @@
 @extends('layout.dashboard.index')
 
+@section('page-title', '|ویرایش دسته بندی');
+
 @section('header-title', 'ویرایش دسته بندی')
 
 @section('mainContent')
@@ -28,7 +30,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">عنوان دسته بندی</label>
-                                    <input type="text" name="title" value="{{old('title', $category->title)}}"
+                                    <input type="text" name="name" value="{{old('name', $category->name)}}"
                                            class="form-control" id="exampleInputEmail1"
                                            placeholder="عنوان دسته بندی را وارد کنید">
                                 </div>

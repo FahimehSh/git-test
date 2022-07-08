@@ -1,8 +1,8 @@
 @extends('layout.dashboard.index')
 
-@section('page-title', '|ایجاد دسته بندی جدید');
+@section('page-title', '|ویرایش تگ');
 
-@section('header-title', 'ایجاد دسته بندی جدید')
+@section('header-title', 'ویرایش تگ')
 
 @section('mainContent')
     @if($errors->any())
@@ -20,17 +20,19 @@
                 <div class="col-md-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">ایجاد دسته بندی جدید</h3>
+                            <h3 class="card-title">ویرایش تگ</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" action="{{route('categories.store')}}">
+                        <form role="form" method="post"
+                              action="{{route('tags.update', ['tag'=>$tag->id])}}">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">عنوان دسته بندی</label>
-                                    <input type="text" name="name" value="{{old('name')}}" class="form-control" id="exampleInputEmail1"
-                                           placeholder="عنوان دسته بندی را وارد کنید">
+                                    <input type="text" name="name" value="{{old('name', $tag->name)}}"
+                                           class="form-control" id="exampleInputEmail1"
+                                           placeholder="نام تگ را وارد کنید">
                                 </div>
                             </div>
                             <!-- /.card-body -->
